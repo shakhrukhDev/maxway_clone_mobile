@@ -306,7 +306,7 @@ class _HomePageState extends State<HomePage> {
                                                   ? SizedBox(
                                                   width: 120,
                                                   height: 120,
-                                                  child: Image.asset('assets/png_image/splash.png'))
+                                                  child: Image.asset('assets/png_image/splash_logo.png'))
                                                   : Image.network(
                                                 state.productsWithCategoryResponse!.categories![0]
                                                     .products![index].image
