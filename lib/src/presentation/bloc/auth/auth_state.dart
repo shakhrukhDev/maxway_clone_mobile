@@ -4,19 +4,23 @@ part of 'auth_bloc.dart';
 class AuthState extends Equatable {
   final CheckPhoneResponse? checkPhoneResponse;
   final Status status;
+  final bool? registration;
 
   const AuthState({
     this.checkPhoneResponse,
     this.status = Status.initial,
+     this.registration,
   });
 
   AuthState copyWith({
     CheckPhoneResponse? checkPhoneResponse,
     Status? status,
+    bool? registration,
   }) {
     return AuthState(
       checkPhoneResponse: checkPhoneResponse ?? this.checkPhoneResponse,
       status: status ?? this.status,
+      registration: registration ?? this.registration,
     );
   }
 
@@ -24,6 +28,7 @@ class AuthState extends Equatable {
   List<Object?> get props => [
         checkPhoneResponse,
         status,
+        registration,
       ];
 }
 

@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:maxway_clone/src/data/models/auth/login_request.dart';
 import 'package:meta/meta.dart';
 import 'package:maxway_clone/src/data/models/auth/check_phone_response.dart';
 import 'package:maxway_clone/src/data/models/auth/registr_phone_request.dart';
@@ -21,20 +22,23 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     CheckPhoneEvent event,
     Emitter<AuthState> emit,
   ) async {
-    try {
-      final result = await authRepository.checkPhone(
-        RegisterPhoneRequest(phone: event.phone),
-      );
-      emit(
-        state.copyWith(
-          checkPhoneResponse: result,
-          status: Status.success,
-        ),
-      );
-    } catch (e) {
-      emit(
-        state.copyWith(status: Status.error),
-      );
-    }
+    final result = await authRepository.login(LoginRequest(phone: event.phone));
+    result.fold((left) {
+      if (left.code == 404) {
+        /// 1. registration(input name)
+        /// 2. verification(register_confirm)
+        /// 3. main
+        ///
+        ///
+        ///
+        emit(state.copyWith(registration: true));
+      } else {
+        /// show message
+        state.copyWith(status: Status.error);
+      }
+    }, (right) {
+      /// 1. verification(login_confirm)
+      /// 2. main
+    });
   }
 }

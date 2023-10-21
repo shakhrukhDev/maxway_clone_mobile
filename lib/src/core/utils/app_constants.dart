@@ -8,6 +8,7 @@ class AppConstants {
   static const imageUrl = 'https://test.cdn.delever.uz/delever/';
   static const androidPlatformID = "6bd7c2e3-d35e-47df-93ce-ed54ed53f95f";
   static const iosPlatformID = "f6631db7-09d0-4cd9-a03a-b7a590abb8c1";
+
 }
 
 final rootNavigatorKey = GlobalKey<NavigatorState>();

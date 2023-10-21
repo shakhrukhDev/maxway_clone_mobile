@@ -30,8 +30,8 @@ class ProfilePage extends StatelessWidget {
               color: Colors.white,
               borderRadius: BorderRadius.circular(12),
               child: const UserInfoWidget(
-                username: 'Muhammadsharif',
-                userPhoneNumber: '+998 93 222 20 63',
+                username: 'Shoxrux',
+                userPhoneNumber: '+998 90 921 11 31',
               ),
             ),
           ),

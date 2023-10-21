@@ -34,6 +34,7 @@ final class ServerError implements Exception {
     }
     if (_errorCode == 404) {
       _errorMessage = 'Not Found';
+     /// error.response?.data['Error']['message'];
       return;
     }
     if (_errorCode == 413) {
